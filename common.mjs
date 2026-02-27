@@ -51,7 +51,7 @@ export function isFridayNight(event) {
 // ============================================================
 // QUESTIONS
 // 1. What was the user's most often listened to song according to the data?
-export function getMostListenedSongByCount(userID) {
+export function songByCount(userID) {
   const events = getEnrichedEvents(userID);
   if (events.length === 0) return null;
 
@@ -61,7 +61,7 @@ export function getMostListenedSongByCount(userID) {
 }
 
 // 2. What was the user's most often listened to artist according to the data?
-export function getMostListenedArtistByCount(userID) {
+export function artistByCount(userID) {
   const events = getEnrichedEvents(userID);
   if (events.length === 0) return null;
 
@@ -70,7 +70,7 @@ export function getMostListenedArtistByCount(userID) {
 }
 
 // 3. What was the user's most often listened to song on Friday nights (between 5pm and 4am)?
-export function getMostListenedFridayNightSongByCount(userID) {
+export function fridayNightSongByCount(userID) {
   const events = getEnrichedEvents(userID);
   const fridayEvents = events.filter(isFridayNight);
   if (fridayEvents.length === 0) return null;
@@ -82,7 +82,7 @@ export function getMostListenedFridayNightSongByCount(userID) {
 
 // 4. What are the answers to the above questions if using _listening time_ rather than _number of listens_?
 // 4.1 Most listened song by time
-export function getMostListenedSongByTime(userID) {
+export function songByTime(userID) {
   const events = getEnrichedEvents(userID);
   if (events.length === 0) return null;
 
@@ -93,7 +93,7 @@ export function getMostListenedSongByTime(userID) {
   return getMostByTime(items);
 }
 // 4.2 Most listened artist by time
-export function getMostListenedArtistByTime(userID) {
+export function artistByTime(userID) {
   const events = getEnrichedEvents(userID);
   if (events.length === 0) return null;
 
@@ -106,7 +106,7 @@ export function getMostListenedArtistByTime(userID) {
 }
 
 // 4.3 Most listened song on friday night by time
-export function getMostListenedFridayNightSongByTime(userID) {
+export function fridayNightSongByTime(userID) {
   const events = getEnrichedEvents(userID);
   const fridayEvents = events.filter(isFridayNight);
   if (fridayEvents.length === 0) return null;
@@ -179,7 +179,7 @@ export function getEverydaySongs(userID) {
 }
 
 // 7. What were the user's top three genres to listen to by number of listens? */
-export function getTopGenres(userID) {
+export function genres(userID) {
   const events = getEnrichedEvents(userID);
   if (events.length === 0) return [];
 

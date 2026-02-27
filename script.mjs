@@ -4,8 +4,40 @@
 // Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
 // You can't open the index.html file using a file:// URL.
 
-import { countUsers } from "./common.mjs";
+import { getUserIDs } from "./data.mjs";
+import {
+  songByCount,
+  artistByCount,
+  fridayNightSongByCount,
+  songByTime,
+  artistByTime,
+  fridayNightSongByTime,
+  getLongestStreak,
+  getEverydaySongs,
+  genres,
+} from "./common.mjs";
 
+// ============================================================
+// FEATURE: Populate the user dropdown on page load
 window.onload = function () {
-  document.querySelector("body").innerText = `There are ${countUsers()} users`;
+  const select = document.getElementById("user-select");
+
+  for (const id of getUserIDs()) {
+    const option = document.createElement("option");
+    option.value = id;
+    option.textContent = `User ${id}`;
+    select.appendChild(option);
+  }
+
+  select.addEventListener("change", (e) => {
+    const userID = e.target.value;
+    const container = document.getElementById("stats-container");
+
+    if (!userID) {
+      container.innerHTML = "";
+      return;
+    }
+
+    renderStats(userID, container);
+  });
 };
