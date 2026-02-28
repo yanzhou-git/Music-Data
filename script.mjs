@@ -34,7 +34,8 @@ window.onload = function () {
     const container = document.getElementById("stats-container");
 
     if (!userID) {
-      container.innerHTML = "";
+      container.innerHTML =
+        "<p>👆 Select a user above to view their listening statistics.</p>";
       return;
     }
 
