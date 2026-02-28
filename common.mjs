@@ -21,7 +21,7 @@ export function getMostFrequent(values) {
   for (const val of values) {
     counts[val] = (counts[val] || 0) + 1;
   }
-  return counts;
+  return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
 }
 
 // find the item with highest total time
@@ -39,11 +39,11 @@ export function getMostByTime(items) {
 //check if a listen event falls on a Friday night (17:00-4:00)
 export function isFridayNight(event) {
   const date = new Date(event.timestamp);
-  const dat = date.getDay(); // 5=fri, 6=sat
+  const day = date.getDay(); // 5=fri, 6=sat
   const secs = event.seconds_since_midnight;
 
   const isFridayEvening = day === 5 && secs >= 61200; //after Friday 17:00
-  const isSaturdayEarlyMorning = day === 6 && secs > 14400; //before Saturday 04:00
+  const isSaturdayEarlyMorning = day === 6 && secs < 14400; //before Saturday 04:00
 
   return isFridayEvening || isSaturdayEarlyMorning;
 }
@@ -133,13 +133,13 @@ export function getLongestStreak(userID) {
     if (event.song_id === currentSongID) {
       currentCount++;
     } else {
-      currentSOngID = event.song_id;
-      currentCOunt = 1;
+      currentSongID = event.song_id;
+      currentCount = 1;
     }
 
     if (currentCount > maxCount) {
       maxCount = currentCount;
-      maxSondId = currentSongID;
+      maxSongId = currentSongID;
     }
   }
 
