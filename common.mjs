@@ -139,7 +139,7 @@ export function getLongestStreak(userID) {
 
     if (currentCount > maxCount) {
       maxCount = currentCount;
-      maxSongId = currentSongID;
+      maxSongID = currentSongID;
     }
   }
 
