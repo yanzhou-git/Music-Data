@@ -1,0 +1,120 @@
+:root{
+/* color */
+    --color-primary: #FF6B00;
+    --color-primary-dark:#e55f00;
+    --color-bg-gradient-start: #ff8c00;
+    --color-bg-gradient-end: #f4e3c3;
+    --color-card-bg: #ffffff;
+    --color-card-muted: #f4f4f4;
+    --color-text: #333333;
+    --color-text-muted: #666666;
+    --color:-border:#eeeeee;
+
+/* space */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+/* font */
+    --font-family: "Segoe UI", system-ui, sans-serif;
+    --font-size-sm:0.9rem;
+    --font-size-md:1rem;
+    --font-size-lg:1.25rem;
+    --font-size-xl:2rem;
+    --font-weight-bold:600;
+
+/* radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
+/* shadow */
+    --shadow-soft: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ================= BASE STYLE ================= */
+body {
+   margin: 0;
+   font-family:var(--font-family);
+   font-size:var(--font-size-md);
+   color: var(--color-text);
+   background: linear-gradient(to bottom, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
+   min-height: 100vh;
+   display: flex;
+   flex-direction:column;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    text-align: center;
+    color: white;
+    margin-bottom: var(--space-lg);
+}
+
+/* ================= Stats Container ================= */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    flex: 1;
+}
+
+/* user selector */
+.selector-container {
+        border-radius: var(--radius-md); 
+     padding:    var(--space-md); 
+     box-sizing: border-box; 
+     border:     2px solid var(--color-primary);
+     background: var(--color-card-bg);
+     width:      50%;       /* fills available space */
+     max-width:  800px;      /* but never exceeds 800px */
+     margin:     0 auto var(--space-md) auto;  /* centered, bottom gap */
+}
+
+select {
+    width: 100%;
+    display: block; 
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-primary); 
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-dark);
+}
+
+/* stats card */
+section {
+    background: var(--color-card-muted);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom:var(--space-md);
+    box-shadow:var(--shadow-soft);
+    border-left:6px solid var(--color-primary);
+}
+
+section:hover {
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+section p {
+    margin: var(--space-xs) 0;
+    color: var(--color-text-muted);
+}
+
+/* ================= Footer ================= */
+footer {
+  margin-top:    auto;
+  text-align:    center;
+  font-size:     var(--font-size-sm);
+  background:    #ffffff;
+  border-top:    2px solid var(--color-primary);
+  color:         var(--color-text-sub);
+  padding: 0;
+}
