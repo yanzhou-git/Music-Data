@@ -1,7 +1,7 @@
 :root{
 /* color */
     --color-primary: #FF6B00;
-    --color-primary-dark:#e55f00;
+    --color-primary-dark:#b34600;
     --color-bg-gradient-start: #ff8c00;
     --color-bg-gradient-end: #f4e3c3;
     --color-card-bg: #ffffff;
@@ -115,6 +115,6 @@ footer {
   font-size:     var(--font-size-sm);
   background:    #ffffff;
   border-top:    2px solid var(--color-primary);
-  color:         var(--color-text-sub);
-  padding: 0;
+  color:         var(--color-text-muted);
+  padding: var(--space-xs);
 }
